@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.handlers.camera;
 
 import org.firstinspires.ftc.robotcore.external.stream.CameraStreamSource;
+import org.opencv.core.Mat;
 
 //Can't implement HardwareComponentHandler due to type restrictions, so it might be worth adding an ever lower HandlerClass that all Handlers can extend
 public abstract class CameraHandler<T extends CameraStreamSource> {
@@ -11,5 +12,9 @@ public abstract class CameraHandler<T extends CameraStreamSource> {
         this.device = device;
     }
 
-    //TODO: maybe add some more common methods like getFrame() or something idk
+    public abstract void closeCamera();
+
+    protected Mat current_frame;
+    public abstract Mat getCurrentFrame();
+
 }
